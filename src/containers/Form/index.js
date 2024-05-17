@@ -5,7 +5,7 @@ import Field, { FIELD_TYPES } from "../../components/Field";
 import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
 
-const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 900); }); // Fonction qui simule une API de contact qui résout une promesse après un délai.
+const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 500); }); // Fonction qui simule une API de contact qui résout une promesse après un délai.
 const Form = ({ onSuccess, onError }) => { // Définition du composant Form avec les props onSuccess et onError pour gérer les résultats de l'envoi.
   const [sending, setSending] = useState(false); // Utilisation du hook useState pour gérer l'état de l'envoi (sending).
   const sendContact = useCallback( // Utilisation du hook useCallback pour mémoriser la fonction d'envoi du formulaire.
@@ -15,7 +15,8 @@ const Form = ({ onSuccess, onError }) => { // Définition du composant Form avec
       try {
         await mockContactApi(); // Tente d'appeler l'API de contact simulée.
         setSending(false);
-        onSuccess(); // Assurez-vous d'appeler onSuccess ici si nécessaire
+        
+         onSuccess(); // Modification ajout de onSuccess ici, pour assure d'appeler onSuccess si nécessaire
       } catch (err) {
         setSending(false);  // Arrête l'envoi en cas de succès.
         onError(err); // Appelle la fonction onError avec l'erreur.

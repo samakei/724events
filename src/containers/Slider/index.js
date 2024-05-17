@@ -14,7 +14,7 @@ const Slider = () => {
         new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
       )
     : [];
-
+  
   // Fonction pour passer à la prochaine carte après un délai de 5 secondes
   // Définie à l'extérieur de useEffect pour éviter sa recréation à chaque intervalle
   const nextCard = () => {
